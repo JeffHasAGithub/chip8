@@ -22,7 +22,7 @@ template <typename T, std::size_t sz> class Memory {
     }
 
   private:
-    std::array<T, sz> m_buffer;
+    T m_buffer[sz];
 };
 } // namespace chip8
 
