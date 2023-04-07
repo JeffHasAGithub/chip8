@@ -1,5 +1,5 @@
-#ifndef CHIP8_MEMORY_H
-#define CHIP8_MEMORY_H
+#ifndef CHIP8_MEMORY_HPP
+#define CHIP8_MEMORY_HPP
 
 #include <cassert>
 #include <iterator>
