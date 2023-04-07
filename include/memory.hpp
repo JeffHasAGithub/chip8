@@ -3,6 +3,7 @@
 
 #include <cassert>
 #include <iterator>
+#include <stdexcept>
 
 namespace chip8 {
 
@@ -18,17 +19,25 @@ template <typename T, std::size_t sz> class Memory {
     ~Memory() = default;
 
     T &operator[](std::size_t i) {
-        assert(i < sz);
+        if (i >= sz)
+            throw std::out_of_range(
+                std::string("not in range: ", i)
+            );
+
         return m_buffer[i];
     }
 
     T operator[](std::size_t i) const {
-        assert(i < sz);
+        if (i >= sz)
+            throw std::out_of_range(
+                std::string("not in range: ", i)
+            );
+
         return m_buffer[i];
     }
 
-    T* begin() { return std::begin(m_buffer); }
-    T* end() { return std::end(m_buffer); }
+    T *begin() { return std::begin(m_buffer); }
+    T *end() { return std::end(m_buffer); }
 
   private:
     T m_buffer[sz];
