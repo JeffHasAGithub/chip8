@@ -21,7 +21,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 
 test: $(filter-out $(OBJDIR)/main.o, $(OBJS))
 	@mkdir -p $(BINDIR)
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $(TSTDIR)/test_main.cpp $^ -o $(TEST)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(wildcard $(TSTDIR)/*.cpp) $^ -o $(TEST)
 
 clean:
 	rm -rf $(BINDIR) $(OBJDIR)
