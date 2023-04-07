@@ -36,6 +36,8 @@ template <typename T, std::size_t sz> class Memory {
     T *begin() { return std::begin(m_buffer); }
     T *end() { return std::end(m_buffer); }
 
+    std::size_t size() const { return sz; }
+
   private:
     T m_buffer[sz];
 };
