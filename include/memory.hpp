@@ -1,7 +1,6 @@
 #ifndef CHIP8_MEMORY_H
 #define CHIP8_MEMORY_H
 
-#include <array>
 #include <cassert>
 
 namespace chip8 {
