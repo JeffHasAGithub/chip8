@@ -4,7 +4,7 @@ INCLUDES ?= -Iinclude
 
 EXE = $(BINDIR)/chip8
 TEST = $(BINDIR)/test
-OBJS = $(addprefix $(OBJDIR)/, main.o)
+OBJS = $(addprefix $(OBJDIR)/, main.o memory.o)
 
 BINDIR = bin
 SRCDIR = src
