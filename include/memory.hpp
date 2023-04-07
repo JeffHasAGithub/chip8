@@ -9,6 +9,12 @@ namespace chip8 {
 template <typename T, std::size_t sz> class Memory {
   public:
     Memory() = default;
+    Memory(T dv) {
+        auto it = begin(), stop = end();
+        for (; it != stop; ++it)
+            *it = dv;
+    }
+
     ~Memory() = default;
 
     T &operator[](std::size_t i) {
