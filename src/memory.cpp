@@ -1,1 +1,3 @@
-#include "memory.h"
+#include "memory.hpp"
+
+using namespace chip8;
