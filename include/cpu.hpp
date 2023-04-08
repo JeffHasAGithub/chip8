@@ -5,12 +5,15 @@
 #include <cstdint>
 
 namespace chip8 {
+
 class Cpu {
   public:
+    using opcode_t = std::uint16_t;
+
     Cpu(Memory<std::uint8_t, 4096> &ram) : m_ram{ram} {}
     ~Cpu() = default;
 
-    std::uint16_t fetch();
+    opcode_t fetch();
 
   private:
     Memory<std::uint8_t, 4096> &m_ram;
