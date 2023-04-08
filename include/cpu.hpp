@@ -7,8 +7,11 @@
 namespace chip8 {
 class Cpu {
   public:
-    Cpu() = default;
+    Cpu(Memory<std::uint8_t, 4096> &ram): m_ram{ram} {}
     ~Cpu() = default;
+
+  private:
+    Memory<std::uint8_t, 4096> &m_ram;
 };
 } // namespace chip8
 
