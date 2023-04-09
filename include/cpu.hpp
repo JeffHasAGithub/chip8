@@ -30,7 +30,7 @@ class Cpu {
     Memory<std::uint8_t, mem_sz> &m_ram;
 
     // general purpose registers
-    byte_t m_gp[0x10]{};
+    byte_t m_gp[n_regs]{};
 
     byte_t m_dt; // delay timer
     byte_t m_st; // sound timer
