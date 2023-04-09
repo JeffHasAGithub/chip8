@@ -10,6 +10,10 @@ class Cpu {
   public:
     using opcode_t = std::uint16_t;
     using addr_t = std::uint16_t;
+    enum status_t {
+        CPU_OK,
+        CPU_ERR,
+    };
 
     Cpu(Memory<std::uint8_t, 4096> &ram) : m_ram{ram} {}
     ~Cpu() = default;
