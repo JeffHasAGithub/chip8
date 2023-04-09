@@ -35,8 +35,8 @@ class Cpu {
     byte_t m_dt; // delay timer
     byte_t m_st; // sound timer
 
-    addr_t m_pc{0x200}; // program counter
-    addr_t m_sp;        // stack pointer
+    addr_t m_pc{pc_init}; // program counter
+    addr_t m_sp;          // stack pointer
 };
 } // namespace chip8
 
