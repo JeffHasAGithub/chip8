@@ -1,7 +1,5 @@
 #include "cpu.hpp"
 
-#include <iostream>
-
 namespace chip8 {
 Cpu::opcode_t Cpu::fetch() {
     opcode_t op{};

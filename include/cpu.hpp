@@ -1,8 +1,8 @@
 #ifndef CHIP8_CPU_HPP
 #define CHIP8_CPU_HPP
 
-#include "memory.hpp"
 #include <cstdint>
+#include "memory.hpp"
 
 namespace chip8 {
 
