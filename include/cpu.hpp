@@ -9,6 +9,7 @@ namespace chip8 {
 class Cpu {
   public:
     using opcode_t = std::uint16_t;
+    using addr_t = std::uint16_t;
 
     Cpu(Memory<std::uint8_t, 4096> &ram) : m_ram{ram} {}
     ~Cpu() = default;
@@ -17,7 +18,7 @@ class Cpu {
 
   private:
     Memory<std::uint8_t, 4096> &m_ram;
-    std::uint16_t m_pc{0x200};
+    addr_t m_pc{0x200};
 };
 } // namespace chip8
 
