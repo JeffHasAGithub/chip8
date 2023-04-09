@@ -1,6 +1,7 @@
 #ifndef CHIP8_CPU_HPP
 #define CHIP8_CPU_HPP
 
+#include "constants.hpp"
 #include "memory.hpp"
 #include <cstdint>
 
@@ -18,7 +19,7 @@ class Cpu {
     using addr_t = std::uint16_t;
     using oper_t = status_t (*)(opcode_t);
 
-    Cpu(Memory<std::uint8_t, 4096> &ram) : m_ram{ram} {}
+    Cpu(Memory<std::uint8_t, mem_sz> &ram) : m_ram{ram} {}
     ~Cpu() = default;
 
     opcode_t fetch();
@@ -26,16 +27,16 @@ class Cpu {
     status_t execute(oper_t);
 
   private:
-    Memory<std::uint8_t, 4096> &m_ram;
+    Memory<std::uint8_t, mem_sz> &m_ram;
 
     // general purpose registers
-    byte_t m_gp[0x10]{};
+    byte_t m_gp[n_regs]{};
 
     byte_t m_dt; // delay timer
     byte_t m_st; // sound timer
 
-    addr_t m_pc{0x200}; // program counter
-    addr_t m_sp;        // stack pointer
+    addr_t m_pc{pc_init}; // program counter
+    addr_t m_sp;          // stack pointer
 };
 } // namespace chip8
 
