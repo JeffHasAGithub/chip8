@@ -11,4 +11,5 @@ Cpu::opcode_t Cpu::fetch() {
 }
 
 Cpu::oper_t Cpu::decode(opcode_t opc) { return nullptr; }
+Cpu::status_t Cpu::execute(oper_t oper) { return Cpu::CPU_OK; }
 } // namespace chip8
