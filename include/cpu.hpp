@@ -32,6 +32,7 @@ class Cpu {
     byte_t m_dt;
     byte_t m_st;
     addr_t m_pc{0x200};
+    addr_t m_sp;
 };
 } // namespace chip8
 
