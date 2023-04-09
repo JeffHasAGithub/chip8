@@ -27,6 +27,8 @@ class Cpu {
 
   private:
     Memory<std::uint8_t, 4096> &m_ram;
+
+    byte_t m_gp[0x10] {};
     addr_t m_pc{0x200};
 };
 } // namespace chip8
