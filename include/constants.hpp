@@ -3,7 +3,7 @@
 
 namespace chip8 {
 // MEMORY
-inline constexpr int mem_sz{4096};
+inline constexpr int mem_sz{0x1000};
 inline constexpr int n_regs{0x10};
 }
 
