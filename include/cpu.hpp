@@ -13,6 +13,7 @@ class Cpu {
         CPU_ERR,
     };
 
+    using byte_t = std::uint8_t;
     using opcode_t = std::uint16_t;
     using addr_t = std::uint16_t;
     using oper_t = status_t (*)(opcode_t);
@@ -21,7 +22,6 @@ class Cpu {
     ~Cpu() = default;
 
     opcode_t fetch();
-    oper_t decode(opcode_t);
 
   private:
     Memory<std::uint8_t, 4096> &m_ram;
