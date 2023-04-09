@@ -9,4 +9,6 @@ Cpu::opcode_t Cpu::fetch() {
 
     return op;
 }
-}
+
+Cpu::oper_t Cpu::decode(opcode_t opc) { return nullptr; }
+} // namespace chip8
