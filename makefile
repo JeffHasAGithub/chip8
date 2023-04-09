@@ -1,5 +1,5 @@
 CXX := clang++
-CXXFLAGS ?= -std=c++20 -Wall -Weffc++ -Wextra -Wsign-conversion -Werror -pedantic-errors
+CXXFLAGS ?= -std=c++20 -Wall -Weffc++ -Wextra -Wsign-conversion -pedantic-errors
 INCLUDES ?= -Iinclude
 
 EXE = $(BINDIR)/chip8
