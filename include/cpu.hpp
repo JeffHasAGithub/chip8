@@ -23,6 +23,7 @@ class Cpu {
 
     opcode_t fetch();
     oper_t decode(opcode_t);
+    status_t execute(oper_t);
 
   private:
     Memory<std::uint8_t, 4096> &m_ram;
