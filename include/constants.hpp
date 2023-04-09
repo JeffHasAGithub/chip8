@@ -1,0 +1,4 @@
+#ifndef CHIP8_CONSTANTS_HPP
+#define CHIP8_CONSTANTS_HPP
+
+#endif
