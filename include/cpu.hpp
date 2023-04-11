@@ -1,7 +1,7 @@
 #ifndef CHIP8_CPU_HPP
 #define CHIP8_CPU_HPP
 
-#include "constants.hpp"
+#include "common.hpp"
 #include "memory.hpp"
 #include <cstdint>
 
