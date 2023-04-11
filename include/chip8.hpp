@@ -6,7 +6,7 @@
 #include "memory.hpp"
 
 namespace chip8 {
-int run();
+chip8_status_t run();
 } // namespace chip8
 
 #endif
