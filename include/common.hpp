@@ -1,5 +1,5 @@
-#ifndef CHIP8_CONSTANTS_HPP
-#define CHIP8_CONSTANTS_HPP
+#ifndef CHIP8_COMMON_HPP
+#define CHIP8_COMMON_HPP
 
 #include <cstdint>
 
