@@ -6,11 +6,6 @@
 #include "memory.hpp"
 
 namespace chip8 {
-enum status_t {
-    CHIP8_OK,
-    CHIP8_ERR,
-};
-
 int run();
 } // namespace chip8
 
