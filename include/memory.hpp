@@ -1,6 +1,7 @@
 #ifndef CHIP8_MEMORY_HPP
 #define CHIP8_MEMORY_HPP
 
+#include <array>
 #include <cassert>
 #include <iterator>
 #include <stdexcept>
@@ -39,7 +40,7 @@ template <typename T, std::size_t sz> class Memory {
     std::size_t size() const { return sz; }
 
   private:
-    T m_buffer[sz];
+    std::array<T, sz> m_buffer;
 };
 } // namespace chip8
 
