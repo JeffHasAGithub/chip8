@@ -1,12 +1,10 @@
 #ifndef CHIP8_MEMORY_HPP
 #define CHIP8_MEMORY_HPP
 
-#include <cassert>
-#include <iterator>
+#include <array>
 #include <stdexcept>
 
 namespace chip8 {
-
 template <typename T, std::size_t sz> class Memory {
   public:
     Memory() = default;
@@ -33,13 +31,13 @@ template <typename T, std::size_t sz> class Memory {
     T *operator&() { return &m_buffer[0]; }
     const T *operator&() const { return &this; }
 
-    T *begin() { return std::begin(m_buffer); }
-    T *end() { return std::end(m_buffer); }
+    T *begin() { return m_buffer.begin(); }
+    T *end() { return m_buffer.end(); }
 
     std::size_t size() const { return sz; }
 
   private:
-    T m_buffer[sz];
+    std::array<T, sz> m_buffer;
 };
 } // namespace chip8
 
