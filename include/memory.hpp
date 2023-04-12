@@ -34,8 +34,8 @@ template <typename T, std::size_t sz> class Memory {
     T *operator&() { return &m_buffer[0]; }
     const T *operator&() const { return &this; }
 
-    T *begin() { return std::begin(m_buffer); }
-    T *end() { return std::end(m_buffer); }
+    T *begin() { return m_buffer.begin(); }
+    T *end() { return m_buffer.end(); }
 
     std::size_t size() const { return sz; }
 
