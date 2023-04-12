@@ -2,8 +2,6 @@
 #define CHIP8_MEMORY_HPP
 
 #include <array>
-#include <cassert>
-#include <iterator>
 #include <stdexcept>
 
 namespace chip8 {
