@@ -5,7 +5,6 @@
 #include <stdexcept>
 
 namespace chip8 {
-
 template <typename T, std::size_t sz> class Memory {
   public:
     Memory() = default;
