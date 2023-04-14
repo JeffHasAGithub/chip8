@@ -3,11 +3,25 @@
 
 #include "common.hpp"
 #include "memory.hpp"
+#include <fstream>
+#include <iostream>
+#include <stdexcept>
 
 namespace chip8 {
 class Cpu {
   public:
-    Cpu() = default;
+    Cpu(const std::string& rom) {
+        std::ifstream fin{rom, std::ios::binary};
+
+        if (!fin)
+            throw std::runtime_error("could not open rom: " + rom);
+
+        while (fin && m_pc < 0x600)
+            fin >> m_mem[m_pc++];
+
+        if (!fin.eof())
+            throw std::runtime_error("failure reading from rom: " + rom);
+    }
     Cpu(const Cpu &cpu) = delete;
 
     ~Cpu() = default;
