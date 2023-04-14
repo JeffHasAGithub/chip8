@@ -3,24 +3,17 @@
 
 #include "common.hpp"
 #include "memory.hpp"
-#include <fstream>
 #include <iostream>
-#include <stdexcept>
 
 namespace chip8 {
 class Cpu {
   public:
-    Cpu(const std::string& rom) {
-        std::ifstream fin{rom, std::ios::binary};
+    Cpu(std::istream &rom) {
+        while (rom && m_pc < prog_end)
+            rom >> m_mem[m_pc++];
 
-        if (!fin)
-            throw std::runtime_error("could not open rom: " + rom);
-
-        while (fin && m_pc < 0x600)
-            fin >> m_mem[m_pc++];
-
-        if (!fin.eof())
-            throw std::runtime_error("failure reading from rom: " + rom);
+        if (!rom.eof())
+            throw std::runtime_error("failure reading rom");
     }
     Cpu(const Cpu &cpu) = delete;
 
@@ -35,12 +28,12 @@ class Cpu {
   private:
     Memory<byte_t, mem_sz> m_mem{};
 
-    byte_t m_gp[n_regs]{}; // general purpose registers
-    byte_t m_dt;           // delay timer
-    byte_t m_st;           // sound timer
-    addr_t m_pc{prog_init};  // program counter
-    addr_t m_sp;           // stack pointer
-    addr_t m_i;            // index register
+    byte_t m_gp[n_regs]{};  // general purpose registers
+    byte_t m_dt;            // delay timer
+    byte_t m_st;            // sound timer
+    addr_t m_pc{prog_init}; // program counter
+    addr_t m_sp;            // stack pointer
+    addr_t m_i;             // index register
 };
 } // namespace chip8
 
