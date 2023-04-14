@@ -8,8 +8,11 @@ namespace chip8 {
 class Cpu {
   public:
     Cpu() = default;
-    Cpu(const Cpu& cpu) = delete;
+    Cpu(const Cpu &cpu) = delete;
+
     ~Cpu() = default;
+
+    Cpu &operator=(const Cpu &cpu) = delete;
 
     opcode_t fetch();
     oper_t decode(opcode_t);
