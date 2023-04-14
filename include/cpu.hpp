@@ -3,13 +3,11 @@
 
 #include "common.hpp"
 #include "memory.hpp"
-#include <cstdint>
 
 namespace chip8 {
-
 class Cpu {
   public:
-    Cpu(Memory<std::uint8_t, mem_sz> &ram) : m_ram{ram} {}
+    Cpu(Memory<byte_t, mem_sz> &ram) : m_ram{ram} {}
     ~Cpu() = default;
 
     opcode_t fetch();
@@ -17,7 +15,7 @@ class Cpu {
     cpu_status_t execute(oper_t);
 
   private:
-    Memory<std::uint8_t, mem_sz> &m_ram;
+    Memory<byte_t, mem_sz> m_ram{};
 
     byte_t m_gp[n_regs]{}; // general purpose registers
     byte_t m_dt;           // delay timer
