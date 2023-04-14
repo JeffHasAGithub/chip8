@@ -8,6 +8,7 @@ namespace chip8 {
 class Cpu {
   public:
     Cpu() = default;
+    Cpu(const Cpu& cpu) = delete;
     ~Cpu() = default;
 
     opcode_t fetch();
