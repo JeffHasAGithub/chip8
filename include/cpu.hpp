@@ -7,7 +7,7 @@
 namespace chip8 {
 class Cpu {
   public:
-    Cpu(Memory<byte_t, mem_sz> &ram) : m_ram{ram} {}
+    Cpu() = default;
     ~Cpu() = default;
 
     opcode_t fetch();
