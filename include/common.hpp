@@ -20,7 +20,7 @@ enum class cpu_status_t {
 };
 
 inline constexpr int mem_sz{0x1000};
-inline constexpr int pc_init{0x200};
+inline constexpr int prog_init{0x200};
 inline constexpr int n_regs{0x10};
 } // namespace chip8
 
