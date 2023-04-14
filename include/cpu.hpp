@@ -19,14 +19,11 @@ class Cpu {
   private:
     Memory<std::uint8_t, mem_sz> &m_ram;
 
-    // general purpose registers
-    byte_t m_gp[n_regs]{};
-
-    byte_t m_dt; // delay timer
-    byte_t m_st; // sound timer
-
-    addr_t m_pc{pc_init}; // program counter
-    addr_t m_sp;          // stack pointer
+    byte_t m_gp[n_regs]{}; // general purpose registers
+    byte_t m_dt;           // delay timer
+    byte_t m_st;           // sound timer
+    addr_t m_pc{pc_init};  // program counter
+    addr_t m_sp;           // stack pointer
 };
 } // namespace chip8
 
