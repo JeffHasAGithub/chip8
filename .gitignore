@@ -1,4 +1,5 @@
 .cache/
+roms/
 bin/
 src/obj/
 
