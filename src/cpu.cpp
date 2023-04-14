@@ -4,8 +4,8 @@ namespace chip8 {
 opcode_t Cpu::fetch() {
     opcode_t op{};
 
-    op |= m_ram[m_pc++] << 8;
-    op |= m_ram[m_pc];
+    op |= m_mem[m_pc++] << 8;
+    op |= m_mem[m_pc];
 
     return op;
 }
