@@ -13,12 +13,14 @@ public:
     ~Stack() = default;
 
     void push(T val) {
-        if (m_sp == 0)
+        if (m_sp < 0)
             throw std::out_of_range("bottom of the stack");
-        this[m_sp--] = val;
+        this[--m_sp] = val;
     }
+
+
 private:
-    std::size_t m_sp{sz - 1};
+    std::size_t m_sp{sz};
 };
 }
 
