@@ -1,15 +1,14 @@
 #ifndef CHIP8_STACK_HPP
 #define CHIP8_STACK_HPP
 
-#include "common.hpp"
 #include "memory.hpp"
 #include <stdexcept>
 
 namespace chip8 {
 template <typename T, std::size_t sz>
-class Stack: public Memory<T, sz> {
-public:
-    Stack() = default; 
+class Stack : public Memory<T, sz> {
+  public:
+    Stack() = default;
     ~Stack() = default;
 
     void push(T val) {
@@ -18,10 +17,15 @@ public:
         this[--m_sp] = val;
     }
 
+    T pop() {
+        if (m_sp >= sz)
+            throw std::out_of_range("beyond stack range");
+        return this[m_sp++];
+    }
 
-private:
+  private:
     std::size_t m_sp{sz};
 };
-}
+} // namespace chip8
 
 #endif
