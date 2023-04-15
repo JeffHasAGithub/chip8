@@ -9,7 +9,7 @@ template <typename T, std::size_t sz>
 class Stack : public Memory<T, sz> {
   public:
     Stack() = default;
-    Stack(T dv): Memory<T, sz>(dv) {};
+    Stack(T dv) : Memory<T, sz>(dv){};
 
     ~Stack() = default;
 
@@ -24,6 +24,8 @@ class Stack : public Memory<T, sz> {
             throw std::out_of_range("beyond stack range");
         return (*this)[m_sp++];
     }
+
+    std::size_t sp() const { return m_sp; }
 
   private:
     std::size_t m_sp{sz};
