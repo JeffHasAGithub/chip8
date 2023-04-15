@@ -13,14 +13,14 @@ class Stack : public Memory<T, sz> {
 
     void push(T val) {
         if (m_sp < 0)
-            throw std::out_of_range("bottom of the stack");
-        this[--m_sp] = val;
+            throw std::out_of_range("beyond stack range");
+        (*this)[--m_sp] = val;
     }
 
     T pop() {
         if (m_sp >= sz)
             throw std::out_of_range("beyond stack range");
-        return this[m_sp++];
+        return (*this)[m_sp++];
     }
 
   private:
