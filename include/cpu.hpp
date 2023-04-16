@@ -10,7 +10,7 @@ class Cpu {
   public:
     Cpu(std::istream &rom) {
         while (rom && m_pc < prog_end)
-            rom >> m_mem[m_pc++];
+            rom >> m_ram[m_pc++];
 
         if (!rom.eof())
             throw std::runtime_error("failure reading rom");
@@ -26,7 +26,7 @@ class Cpu {
     cpu_status_t execute(oper_t);
 
   private:
-    Memory<byte_t, mem_sz> m_mem{};
+    Memory<byte_t, mem_sz> m_ram{};
 
     byte_t m_gp[n_regs]{};  // general purpose registers
     byte_t m_dt;            // delay timer
