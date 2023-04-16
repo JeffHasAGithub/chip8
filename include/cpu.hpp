@@ -27,7 +27,7 @@ class Cpu {
 
   private:
     Memory<byte_t, mem_sz> m_ram{};
-    Memory<addr_t, 16> m_stk{}; 
+    Memory<addr_t, stk_sz> m_stk{}; 
 
     byte_t m_gp[n_regs]{};  // general purpose registers
     byte_t m_dt;            // delay timer
