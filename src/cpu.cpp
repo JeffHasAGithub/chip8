@@ -1,6 +1,14 @@
 #include "cpu.hpp"
 
 namespace chip8 {
+Cpu::Cpu(std::istream &rom) {
+    while (rom && m_pc < prog_end)
+        rom >> m_ram[m_pc++];
+
+    if (!rom.eof())
+        throw std::runtime_error("failure reading rom");
+}
+
 opcode_t Cpu::fetch() {
     opcode_t op{};
 
