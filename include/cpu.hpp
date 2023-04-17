@@ -30,7 +30,7 @@ class Cpu {
     addr_t m_i;             // index register
     std::size_t m_sp{};     // stack pointer
 
-    cpu_status_t init_ram(std::ifstream &rom);
+    cpu_status_t init_ram(std::istream &rom);
 };
 } // namespace chip8
 
