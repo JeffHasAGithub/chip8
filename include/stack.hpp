@@ -8,9 +8,8 @@ namespace chip8 {
 template <typename T, std::size_t sz>
 class Stack : public Memory<T, sz> {
   public:
-    Stack() = default;
-    Stack(T dv) : Memory<T, sz>(dv){};
-
+    Stack(std::size_t &sp) : m_sp(sp) { m_sp = 0; }
+    Stack(std::size_t &sp, T dv) : Memory<T, sz>(dv), Stack<T, sz>(sp) {}
     ~Stack() = default;
 
     void push(T val) {
@@ -28,7 +27,7 @@ class Stack : public Memory<T, sz> {
     std::size_t sp() const { return m_sp; }
 
   private:
-    std::size_t m_sp{sz};
+    std::size_t &m_sp;
 };
 } // namespace chip8
 
