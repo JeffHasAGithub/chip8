@@ -2,6 +2,7 @@
 #define CHIP8_CPU_HPP
 
 #include "common.hpp"
+#include "font.hpp"
 #include "memory.hpp"
 #include "stack.hpp"
 #include <iostream>
@@ -31,6 +32,7 @@ class Cpu {
     std::size_t m_sp{};     // stack pointer
 
     cpu_status_t init_ram(std::istream &rom);
+    void init_font();
 };
 } // namespace chip8
 
