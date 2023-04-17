@@ -17,7 +17,6 @@ class Cpu {
             throw std::runtime_error("failure reading rom");
     }
     Cpu(const Cpu &cpu) = delete;
-
     ~Cpu() = default;
 
     Cpu &operator=(const Cpu &cpu) = delete;
