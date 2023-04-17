@@ -28,7 +28,7 @@ class Stack : public Memory<T, sz> {
     std::size_t sp() const { return m_sp; }
 
   private:
-    std::size_t m_sp{sz};
+    std::size_t &m_sp;
 };
 } // namespace chip8
 
