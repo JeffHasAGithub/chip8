@@ -29,6 +29,8 @@ class Cpu {
     addr_t m_pc{prog_init}; // program counter
     addr_t m_i;             // index register
     std::size_t m_sp{};     // stack pointer
+
+    cpu_status_t init_ram(std::ifstream &rom);
 };
 } // namespace chip8
 
