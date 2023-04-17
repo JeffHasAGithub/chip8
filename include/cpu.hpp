@@ -2,6 +2,7 @@
 #define CHIP8_CPU_HPP
 
 #include "common.hpp"
+#include "font.hpp"
 #include "memory.hpp"
 #include "stack.hpp"
 #include <iostream>
@@ -9,13 +10,7 @@
 namespace chip8 {
 class Cpu {
   public:
-    Cpu(std::istream &rom) {
-        while (rom && m_pc < prog_end)
-            rom >> m_ram[m_pc++];
-
-        if (!rom.eof())
-            throw std::runtime_error("failure reading rom");
-    }
+    Cpu(std::istream &rom);
     Cpu(const Cpu &cpu) = delete;
     ~Cpu() = default;
 
@@ -35,6 +30,9 @@ class Cpu {
     addr_t m_pc{prog_init}; // program counter
     addr_t m_i;             // index register
     std::size_t m_sp{};     // stack pointer
+
+    cpu_status_t init_ram(std::istream &rom);
+    void init_font();
 };
 } // namespace chip8
 

@@ -1,6 +1,12 @@
 #include "cpu.hpp"
 
 namespace chip8 {
+Cpu::Cpu(std::istream &rom) {
+    if (init_ram(rom) == cpu_status_t::CPU_BAD_ROM)
+        throw std::runtime_error("could not read rom");
+    init_font();
+}
+
 opcode_t Cpu::fetch() {
     opcode_t op{};
 
@@ -12,4 +18,20 @@ opcode_t Cpu::fetch() {
 
 oper_t Cpu::decode(opcode_t opc) { return nullptr; }
 cpu_status_t Cpu::execute(oper_t oper) { return cpu_status_t::CPU_OK; }
+
+cpu_status_t Cpu::init_ram(std::istream &rom) {
+    cpu_status_t status{cpu_status_t::CPU_OK};
+
+    while (rom && m_pc < prog_end)
+        rom >> m_ram[m_pc++];
+
+    if (!rom.eof())
+        status = cpu_status_t::CPU_BAD_ROM;
+    return status;
+}
+
+void Cpu::init_font() {
+    for (std::size_t i{0}; i < font.size(); ++i)
+        m_ram[i] = font[i];
+}
 } // namespace chip8
