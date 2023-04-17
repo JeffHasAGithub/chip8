@@ -4,6 +4,7 @@ namespace chip8 {
 Cpu::Cpu(std::istream &rom) {
     if (init_ram(rom) == cpu_status_t::CPU_BAD_ROM)
         throw std::runtime_error("could not read rom");
+    init_font();
 }
 
 opcode_t Cpu::fetch() {
@@ -27,5 +28,10 @@ cpu_status_t Cpu::init_ram(std::istream &rom) {
     if (!rom.eof())
         status = cpu_status_t::CPU_BAD_ROM;
     return status;
+}
+
+void Cpu::init_font() {
+    for (std::size_t i{0}; i < font.size(); ++i)
+        m_ram[i] = font[i];
 }
 } // namespace chip8
