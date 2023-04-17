@@ -10,7 +10,6 @@ class Stack : public Memory<T, sz> {
   public:
     Stack(std::size_t &sp) : m_sp(sp){};
     Stack(std::size_t &sp, T dv) : Memory<T, sz>(dv), Stack<T, sz>(sp){};
-
     ~Stack() = default;
 
     void push(T val) {
