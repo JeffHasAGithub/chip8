@@ -16,6 +16,7 @@ enum class chip8_status_t {
 
 enum class cpu_status_t {
     CPU_OK,
+    CPU_BAD_ROM,
     CPU_ERR,
 };
 
