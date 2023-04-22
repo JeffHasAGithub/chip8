@@ -1,7 +1,9 @@
 #ifndef ARGS_HPP
 #define ARGS_HPP
 
+#include <algorithm>
 #include <mutex>
+#include <sstream>
 #include <variant>
 #include <vector>
 
