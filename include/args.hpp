@@ -2,9 +2,12 @@
 #define ARGS_HPP
 
 #include <mutex>
+#include <variant>
 
 class Args {
   public:
+    using Value = std::variant<int *, double *, bool *, std::string *>;
+
     Args(const Args &) = delete;
     Args &operator=(const Args &) = delete;
 
