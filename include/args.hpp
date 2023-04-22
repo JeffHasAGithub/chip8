@@ -12,6 +12,9 @@ class Args {
     Args(const Args &) = delete;
     Args &operator=(const Args &) = delete;
 
+    void add(const std::vector<std::string> &flags, const Value &val,
+             const std::string &help);
+
     static Args *instance();
 
   private:
