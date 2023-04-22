@@ -11,7 +11,7 @@ class Args {
     static Args *instance();
 
   private:
-    Args();
+    Args() = default;
 
     static Args *s_instance;
     static std::mutex s_mutex;
