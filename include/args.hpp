@@ -26,6 +26,8 @@ class Args {
 
     Args() = default;
 
+    std::vector<Arg> m_args{};
+
     static Args *s_instance;
     static std::mutex s_mutex;
 };
