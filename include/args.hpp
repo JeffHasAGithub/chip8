@@ -15,7 +15,7 @@ class Args {
 
     void add(const std::vector<std::string> &flags, const Value &val,
              const std::string &help);
-    bool parse(int argc, char *argv[]);
+    void parse(int argc, char *argv[]);
 
     static Args *instance();
 
