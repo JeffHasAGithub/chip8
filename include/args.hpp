@@ -8,9 +8,10 @@ class Args {
     Args(const Args &) = delete;
     Args &operator=(const Args &) = delete;
 
-    static Args &instance(int argc, char *argv[]);
+    static Args *instance(int argc, char *argv[]);
 
   private:
+    Args();
     Args(int argc, char *argv[]);
 
     static Args *s_instance;
