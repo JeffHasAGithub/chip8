@@ -5,6 +5,7 @@
 #include <variant>
 #include <vector>
 
+namespace chip8 {
 class Args {
   public:
     using Value = std::variant<int *, double *, bool *, std::string *>;
@@ -31,5 +32,6 @@ class Args {
     static Args *s_instance;
     static std::mutex s_mutex;
 };
+} // namespace chip8
 
 #endif
