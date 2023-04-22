@@ -3,6 +3,7 @@
 
 #include <mutex>
 #include <variant>
+#include <vector>
 
 class Args {
   public:
@@ -14,6 +15,12 @@ class Args {
     static Args *instance();
 
   private:
+    struct Arg {
+        std::vector<std::string> m_flags;
+        Value m_value;
+        std::string m_help;
+    };
+
     Args() = default;
 
     static Args *s_instance;
