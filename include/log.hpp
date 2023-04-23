@@ -12,8 +12,9 @@ class Log {
     static Log *instance(std::ostream &out = std::cout);
 
   private:
-    Log(std::ostream &out);
+    Log(std::ostream &out) : m_ostream{out} {};
 
+    std::ostream &m_ostream;
     static Log *s_instance;
 };
 } // namespace chip8
