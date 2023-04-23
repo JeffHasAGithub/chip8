@@ -4,10 +4,16 @@
 #include <algorithm>
 #include <mutex>
 #include <sstream>
+#include <stdexcept>
 #include <variant>
 #include <vector>
 
 namespace chip8 {
+class ArgsException : public std::runtime_error {
+  public:
+    ArgsException(const std::string &msg) : std::runtime_error{msg} {};
+};
+
 class Args {
   public:
     using Value = std::variant<int *, double *, bool *, std::string *>;
