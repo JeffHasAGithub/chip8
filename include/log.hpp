@@ -10,8 +10,7 @@ class Log {
     Log(const Log &log) = delete;
     Log &operator=(const Log &log) = delete;
 
-    void write(std::string_view sv);
-    void writeln(std::string_view sv);
+    void write(const std::string &msg);
 
     static Log *instance(std::ostream &out = std::cout);
 

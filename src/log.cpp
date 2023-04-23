@@ -3,12 +3,8 @@
 namespace chip8 {
 Log *Log::s_instance{nullptr};
 
-void Log::write(std::string_view sv) {
-    m_ostream << sv;
-}
-
-void Log::writeln(std::string_view sv) {
-    m_ostream << sv << '\n';
+void Log::write(const std::string &msg) {
+    m_ostream << msg;
 }
 
 Log *Log::instance(std::ostream &out) {
