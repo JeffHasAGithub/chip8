@@ -7,6 +7,10 @@ void Log::write(const std::string &msg) {
     m_ostream << msg;
 }
 
+void Log::error(const std::string &msg) {
+    write("[ERROR] " + msg);
+}
+
 void Log::info(const std::string &msg) {
     write("[INFO] " + msg); 
 }
