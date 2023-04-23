@@ -2,12 +2,15 @@
 #define CHIP8_LOG_HPP
 
 #include <iostream>
+#include <string_view>
 
 namespace chip8 {
 class Log {
   public:
     Log(const Log &log) = delete;
     Log &operator=(const Log &log) = delete;
+
+    void write(std::string_view sv);
 
     static Log *instance(std::ostream &out = std::cout);
 
