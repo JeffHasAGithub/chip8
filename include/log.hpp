@@ -10,7 +10,6 @@ class Log {
     Log(const Log &log) = delete;
     Log &operator=(const Log &log) = delete;
 
-    void write(const std::string &msg);
     void error(const std::string &msg);
     void info(const std::string &msg);
     void warn(const std::string &msg);
@@ -19,6 +18,8 @@ class Log {
 
   private:
     Log(std::ostream &out) : m_ostream{out} {};
+
+    void write(const std::string &msg);
 
     std::ostream &m_ostream;
     static Log *s_instance;
