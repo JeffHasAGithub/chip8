@@ -11,6 +11,7 @@ class Log {
     Log &operator=(const Log &log) = delete;
 
     void write(std::string_view sv);
+    void writeln(std::string_view sv);
 
     static Log *instance(std::ostream &out = std::cout);
 
