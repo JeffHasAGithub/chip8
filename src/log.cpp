@@ -7,6 +7,10 @@ void Log::write(std::string_view sv) {
     m_ostream << sv;
 }
 
+void Log::writeln(std::string_view sv) {
+    m_ostream << sv << '\n';
+}
+
 Log *Log::instance(std::ostream &out) {
     if (s_instance == nullptr)
         s_instance = new Log(out);
