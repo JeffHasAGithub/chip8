@@ -9,6 +9,8 @@ void Args::add(const std::vector<std::string> &flags, const Value &val,
     m_args.push_back(Arg{flags, val, help});
 }
 
+void Args::clear() { m_args.clear(); }
+
 void Args::parse(int argc, char *argv[]) {
     for (int i{1}; i < argc; ++i) {
         std::string flag{argv[i]};
