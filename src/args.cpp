@@ -38,6 +38,8 @@ void Args::parse(int argc, char *argv[]) {
                         arg.m_value
                     );
                 }
+            } else {
+                throw ArgsException("invalid flag - " + flag);
             }
         }
     }
