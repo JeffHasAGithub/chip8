@@ -1,5 +1,4 @@
 #include "args.hpp"
-#include <iostream>
 
 namespace chip8 {
 Args *Args::s_instance{nullptr};
