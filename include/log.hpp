@@ -20,6 +20,7 @@ class Log {
     Log(std::ostream &out) : m_ostream{out} {};
 
     void write(const std::string &msg);
+    void writeln(const std::string &msg);
 
     std::ostream &m_ostream;
     static Log *s_instance;
