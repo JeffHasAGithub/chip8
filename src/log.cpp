@@ -12,15 +12,15 @@ void Log::writeln(const std::string &msg) {
 }
 
 void Log::error(const std::string &msg) {
-    write("[ERROR] " + msg);
+    writeln("[ERROR] " + msg);
 }
 
 void Log::info(const std::string &msg) {
-    write("[INFO] " + msg); 
+    writeln("[INFO] " + msg); 
 }
 
 void Log::warn(const std::string &msg) {
-    write("[WARN] " + msg);
+    writeln("[WARN] " + msg);
 }
 
 Log *Log::instance(std::ostream &out) {
