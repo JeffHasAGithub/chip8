@@ -11,6 +11,10 @@ void Log::info(const std::string &msg) {
     write("[INFO] " + msg); 
 }
 
+void Log::warn(const std::string &msg) {
+    write("[WARN] " + msg);
+}
+
 Log *Log::instance(std::ostream &out) {
     if (s_instance == nullptr)
         s_instance = new Log(out);

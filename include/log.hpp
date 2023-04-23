@@ -12,6 +12,7 @@ class Log {
 
     void write(const std::string &msg);
     void info(const std::string &msg);
+    void warn(const std::string &msg);
 
     static Log *instance(std::ostream &out = std::cout);
 
