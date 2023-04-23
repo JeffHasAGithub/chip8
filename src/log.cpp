@@ -8,7 +8,7 @@ void Log::write(const std::string &msg) {
 }
 
 void Log::writeln(const std::string &msg) {
-    m_ostream << msg << '\n';
+    write(msg + '\n');
 }
 
 void Log::error(const std::string &msg) {
