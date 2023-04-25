@@ -1,5 +1,5 @@
-#ifndef CHIP8_TEST_MEMORY_H
-#define CHIP8_TEST_MEMORY_H
+#ifndef CHIP8_TEST_MEMORY_HPP
+#define CHIP8_TEST_MEMORY_HPP
 
 #include <catch2/catch.hpp>
 #include <stdexcept>
