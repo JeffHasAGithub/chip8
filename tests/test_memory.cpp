@@ -1,6 +1,3 @@
-#ifndef CHIP8_TEST_MEMORY_HPP
-#define CHIP8_TEST_MEMORY_HPP
-
 #include <catch2/catch.hpp>
 #include <stdexcept>
 
@@ -24,5 +21,3 @@ TEST_CASE("subscript operators", "[memory]") {
         REQUIRE_THROWS_AS(cmem[4], std::out_of_range);
     }
 }
-
-#endif
