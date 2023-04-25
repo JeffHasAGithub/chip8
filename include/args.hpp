@@ -1,5 +1,5 @@
-#ifndef ARGS_HPP
-#define ARGS_HPP
+#ifndef CHIP8_ARGS_HPP
+#define CHIP8_ARGS_HPP
 
 #include <algorithm>
 #include <mutex>

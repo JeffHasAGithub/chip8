@@ -4,10 +4,11 @@
 #include "args.hpp"
 #include "common.hpp"
 #include "cpu.hpp"
+#include "log.hpp"
 #include "memory.hpp"
 
 namespace chip8 {
-chip8_status_t run();
+chip8_status_t run(int argc, char *argv[]);
 } // namespace chip8
 
 #endif

@@ -1,8 +1,5 @@
-#include <cstdlib>
-#include <iostream>
+#include "chip8.hpp"
 
-int main() {
-    std::cout << "Hello, Chip8!" << '\n';
-
-    std::exit(EXIT_SUCCESS);
+int main(int argc, char *argv[]) {
+    return static_cast<int>(chip8::run(argc, argv));
 }
