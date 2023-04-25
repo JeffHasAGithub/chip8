@@ -2,7 +2,6 @@
 #define CHIP8_LOG_HPP
 
 #include <iostream>
-#include <string_view>
 
 namespace chip8 {
 class Log {
