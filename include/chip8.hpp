@@ -4,6 +4,7 @@
 #include "args.hpp"
 #include "common.hpp"
 #include "cpu.hpp"
+#include "log.hpp"
 #include "memory.hpp"
 
 namespace chip8 {
