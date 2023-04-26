@@ -1,3 +1,13 @@
+/**
+ * @file font.hpp
+ *
+ * The font used for the emulator. It is 0x50 (80) bytes
+ * long and represents the hexadecimal values 0 through
+ * F. At startup, this data is loaded into memory starting
+ * at 0x000.
+ *
+ */
+
 #ifndef CHIP8_FONT_HPP
 #define CHIP8_FONT_HPP
 
