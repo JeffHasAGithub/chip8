@@ -1,3 +1,14 @@
+/**
+ * @file args.hpp
+ *
+ * The Args class utilizes the singleton pattern
+ * for parsing arguments and flags passed to the
+ * program at runtime.
+ *
+ * Runtime errors are passed up the call stack
+ * via an instance of the ArgsException class.
+ */
+
 #ifndef CHIP8_ARGS_HPP
 #define CHIP8_ARGS_HPP
 
