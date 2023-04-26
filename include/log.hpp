@@ -1,3 +1,12 @@
+/**
+ * @file log.hpp
+ *
+ * The Log class utilizes the singleton pattern
+ * to provide a readily accessible object for
+ * logging important information during runtime.
+ *
+ */
+
 #ifndef CHIP8_LOG_HPP
 #define CHIP8_LOG_HPP
 

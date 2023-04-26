@@ -1,3 +1,12 @@
+/**
+ * @file common.hpp
+ *
+ * A set of common types and constants to
+ * be used throughout the project. It cannot
+ * include any project level header files.
+ *
+ */
+
 #ifndef CHIP8_COMMON_HPP
 #define CHIP8_COMMON_HPP
 

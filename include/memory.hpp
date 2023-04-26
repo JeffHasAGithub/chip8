@@ -1,3 +1,14 @@
+/**
+ * @file memory.hpp
+ *
+ * The Memory class template provides a statically
+ * allocated container for managing program data.
+ * Unlike The standard C++ Array, Memory performs
+ * runtime checks to prevent illegal memory access
+ * at a slight performance penalty.
+ *
+ */
+
 #ifndef CHIP8_MEMORY_HPP
 #define CHIP8_MEMORY_HPP
 
@@ -5,7 +16,8 @@
 #include <stdexcept>
 
 namespace chip8 {
-template <typename T, std::size_t sz> class Memory {
+template <typename T, std::size_t sz>
+class Memory {
   public:
     Memory() = default;
     Memory(T dv) {
