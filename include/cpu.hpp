@@ -1,3 +1,13 @@
+/**
+ * @file cpu.hpp
+ *
+ * The Cpu class implements the chip8
+ * instruction set and coordinates the
+ * various emulated subsystems such as
+ * memory and the display.
+ *
+ */
+
 #ifndef CHIP8_CPU_HPP
 #define CHIP8_CPU_HPP
 
