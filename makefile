@@ -23,6 +23,9 @@ test: $(filter-out $(OBJDIR)/main.o, $(OBJS))
 	@mkdir -p $(BINDIR)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(wildcard $(TSTDIR)/*.cpp) $^ -o $(TEST)
 
+docs: $(OBJS)
+	@doxygen doxyfile
+
 clean:
 	rm -rf $(BINDIR) $(OBJDIR)
 
