@@ -20,13 +20,13 @@
 
 namespace chip8 {
 class Cpu {
+  public:
     enum cpu_status_t {
         CPU_OK,
         CPU_BAD_ROM,
         CPU_ERR,
     };
 
-  public:
     Cpu(std::istream &rom);
     Cpu(const Cpu &cpu) = delete;
     ~Cpu() = default;
