@@ -12,18 +12,16 @@
 #ifndef CHIP8_ARGS_HPP
 #define CHIP8_ARGS_HPP
 
+#include "except.hpp"
+
 #include <algorithm>
 #include <mutex>
 #include <sstream>
-#include <stdexcept>
 #include <variant>
 #include <vector>
 
 namespace chip8 {
-class ArgsException : public std::runtime_error {
-  public:
-    ArgsException(const std::string &msg) : std::runtime_error{msg} {};
-};
+class ArgsException : public Exception {};
 
 class Args {
   public:
