@@ -21,14 +21,14 @@
 #include <vector>
 
 namespace chip8 {
-class ArgsException : public Exception {};
+class ArgsException : public Exception {
+  public:
+    ArgsException(const std::string &msg, int err_c) : Exception{msg, err_c} {};
+};
 
 class Args {
   public:
-    enum args_status_t {
-        ARGS_OK,
-        ARGS_ERR
-    };
+    enum args_status_t { ARGS_OK, ARGS_ERR };
 
     using Value = std::variant<int *, double *, bool *, std::string *>;
 
