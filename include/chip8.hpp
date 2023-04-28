@@ -17,6 +17,10 @@
 #include "memory.hpp"
 
 namespace chip8 {
+enum chip8_status_t {
+    CHIP8_OK,
+    CHIP8_ERR,
+};
 
 /**
  * The only function to be called from 'main'.
