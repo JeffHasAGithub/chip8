@@ -12,21 +12,24 @@
 #ifndef CHIP8_ARGS_HPP
 #define CHIP8_ARGS_HPP
 
+#include "except.hpp"
+
 #include <algorithm>
 #include <mutex>
 #include <sstream>
-#include <stdexcept>
 #include <variant>
 #include <vector>
 
 namespace chip8 {
-class ArgsException : public std::runtime_error {
+class ArgsException : public Exception {
   public:
-    ArgsException(const std::string &msg) : std::runtime_error{msg} {};
+    ArgsException(const std::string &msg, int err_c) : Exception{msg, err_c} {};
 };
 
 class Args {
   public:
+    enum args_status_t { ARGS_OK, ARGS_ERR };
+
     using Value = std::variant<int *, double *, bool *, std::string *>;
 
     Args(const Args &) = delete;
