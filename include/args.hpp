@@ -25,6 +25,11 @@ class ArgsException : public Exception {};
 
 class Args {
   public:
+    enum args_status_t {
+        ARGS_OK,
+        ARGS_ERR
+    };
+
     using Value = std::variant<int *, double *, bool *, std::string *>;
 
     Args(const Args &) = delete;
