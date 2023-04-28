@@ -12,6 +12,7 @@
 #define CHIP8_CPU_HPP
 
 #include "common.hpp"
+#include "except.hpp"
 #include "font.hpp"
 #include "memory.hpp"
 #include "stack.hpp"
@@ -19,6 +20,11 @@
 #include <iostream>
 
 namespace chip8 {
+class CpuException : public Exception {
+  public:
+    CpuException(const std::string &msg, int err_c) : Exception{msg, err_c} {};
+};
+
 class Cpu {
   public:
     enum cpu_status_t {
