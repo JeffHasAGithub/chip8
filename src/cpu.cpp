@@ -17,9 +17,9 @@ opcode_t Cpu::fetch() {
 }
 
 oper_t Cpu::decode(opcode_t opc) { return nullptr; }
-cpu_status_t Cpu::execute(oper_t oper) { return cpu_status_t::CPU_OK; }
+Cpu::cpu_status_t Cpu::execute(oper_t oper) { return cpu_status_t::CPU_OK; }
 
-cpu_status_t Cpu::init_ram(std::istream &rom) {
+Cpu::cpu_status_t Cpu::init_ram(std::istream &rom) {
     cpu_status_t status{cpu_status_t::CPU_OK};
 
     while (rom && m_pc < prog_end)
