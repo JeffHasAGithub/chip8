@@ -10,6 +10,15 @@ std::size_t on(std::size_t val, std::size_t mask);
 std::size_t off(std::size_t val, std::size_t mask);
 std::size_t flip(std::size_t val, std::size_t mask);
 } // namespace bits
+
+class Bits {
+  public:
+    Bits(std::size_t val = 0) : m_value{val} {};
+    ~Bits() = default;
+
+  private:
+    std::size_t m_value;
+};
 } // namespace chip8
 
 #endif
