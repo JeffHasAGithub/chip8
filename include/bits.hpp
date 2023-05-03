@@ -4,9 +4,6 @@
 #include <cstddef>
 
 namespace chip8 {
-namespace bits {
-} // namespace bits
-
 class Bits {
   public:
     Bits(std::size_t val = 0) : m_value{val} {};
