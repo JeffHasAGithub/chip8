@@ -5,16 +5,17 @@
 
 namespace chip8 {
 namespace bits {
-std::size_t extract(std::size_t val, std::size_t mask);
-std::size_t on(std::size_t val, std::size_t mask);
-std::size_t off(std::size_t val, std::size_t mask);
-std::size_t flip(std::size_t val, std::size_t mask);
 } // namespace bits
 
 class Bits {
   public:
     Bits(std::size_t val = 0) : m_value{val} {};
     ~Bits() = default;
+
+    std::size_t on(std::size_t mask) { return m_value | mask; }
+    std::size_t off(std::size_t mask) { return m_value & ~mask; }
+    std::size_t flip(std::size_t mask) { return m_value ^ mask; }
+    std::size_t extract(std::size_t mask) { return m_value & mask; }
 
   private:
     std::size_t m_value;
