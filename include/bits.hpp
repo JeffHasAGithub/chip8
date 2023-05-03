@@ -1,3 +1,12 @@
+/**
+ * @file bits.hpp
+ *
+ * The Bits class provides methods for
+ * manipulating and transforming bit
+ * patterns equivalent to the address
+ * width of the application (e.g. 32-bit, 64-bit).
+ */
+
 #ifndef CHIP8_BITS_HPP
 #define CHIP8_BITS_HPP
 
