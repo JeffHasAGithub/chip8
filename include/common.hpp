@@ -13,10 +13,10 @@
 #include <cstdint>
 
 namespace chip8 {
-using byte_t = std::uint8_t;
-using opcode_t = std::uint16_t;
-using addr_t = std::uint16_t;
-using oper_t = int (*)(opcode_t);
+using Byte = std::uint8_t;
+using Addr = std::uint16_t;
+using OpCode = std::uint16_t;
+using Oper = int (*)(OpCode);
 
 inline constexpr int mem_sz{0x1000};
 inline constexpr int stk_sz{0x10};
