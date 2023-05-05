@@ -26,7 +26,7 @@ class CpuException : public Exception {
 
 class Cpu {
   public:
-    enum cpu_status_t {
+    enum CpuStatus {
         CPU_OK,
         CPU_BAD_ROM,
         CPU_ERR,
@@ -40,7 +40,7 @@ class Cpu {
 
     OpCode fetch();
     Oper decode(OpCode);
-    cpu_status_t execute(Oper);
+    CpuStatus execute(Oper);
 
   private:
     Memory<Byte, mem_sz> m_ram{};
@@ -51,9 +51,9 @@ class Cpu {
     Byte m_st;            // sound timer
     Addr m_pc{prog_init}; // program counter
     Addr m_i;             // index register
-    std::size_t m_sp{};     // stack pointer
+    std::size_t m_sp{};   // stack pointer
 
-    cpu_status_t init_ram(std::istream &rom);
+    CpuStatus init_ram(std::istream &rom);
     void init_font();
 };
 } // namespace chip8
