@@ -15,7 +15,6 @@
 #include "except.hpp"
 #include "font.hpp"
 #include "memory.hpp"
-#include "stack.hpp"
 
 #include <iostream>
 
@@ -27,7 +26,7 @@ class CpuException : public Exception {
 
 class Cpu {
   public:
-    enum cpu_status_t {
+    enum CpuStatus {
         CPU_OK,
         CPU_BAD_ROM,
         CPU_ERR,
@@ -39,22 +38,22 @@ class Cpu {
 
     Cpu &operator=(const Cpu &cpu) = delete;
 
-    opcode_t fetch();
-    oper_t decode(opcode_t);
-    cpu_status_t execute(oper_t);
+    OpCode fetch();
+    Oper decode(OpCode);
+    CpuStatus execute(Oper);
 
   private:
-    Memory<byte_t, mem_sz> m_ram{};
-    Memory<addr_t, stk_sz> m_stk{};
+    Memory<Byte, mem_sz> m_ram{};
+    Memory<Addr, stk_sz> m_stk{};
 
-    byte_t m_gp[n_regs]{};  // general purpose registers
-    byte_t m_dt;            // delay timer
-    byte_t m_st;            // sound timer
-    addr_t m_pc{prog_init}; // program counter
-    addr_t m_i;             // index register
-    std::size_t m_sp{};     // stack pointer
+    Byte m_gp[n_regs]{};  // general purpose registers
+    Byte m_dt;            // delay timer
+    Byte m_st;            // sound timer
+    Addr m_pc{prog_init}; // program counter
+    Addr m_i;             // index register
+    std::size_t m_sp{};   // stack pointer
 
-    cpu_status_t init_ram(std::istream &rom);
+    CpuStatus init_ram(std::istream &rom);
     void init_font();
 };
 } // namespace chip8

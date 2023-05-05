@@ -44,7 +44,7 @@ void Args::parse(int argc, char *argv[]) {
             }
         }
         if (!found)
-            throw ArgsException("invalid flag - " + flag);
+            throw ArgsException("invalid flag - " + flag, ARGS_ERR);
     }
 }
 
