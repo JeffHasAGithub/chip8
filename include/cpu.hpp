@@ -15,7 +15,6 @@
 #include "except.hpp"
 #include "font.hpp"
 #include "memory.hpp"
-#include "stack.hpp"
 
 #include <iostream>
 
