@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['log_0',['Log',['../classchip8_1_1Log.html',1,'chip8']]]
+  ['cpu_0',['Cpu',['../classchip8_1_1Cpu.html',1,'chip8']]],
+  ['cpuexception_1',['CpuException',['../classchip8_1_1CpuException.html',1,'chip8']]]
 ];

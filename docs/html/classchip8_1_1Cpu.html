@@ -74,12 +74,21 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classchip8_1_1Cpu-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">chip8::Cpu Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a4b9bf2ddf22cbd77c4778eac31abe2a7"><td class="memItemLeft" align="right" valign="top"><a id="a4b9bf2ddf22cbd77c4778eac31abe2a7" name="a4b9bf2ddf22cbd77c4778eac31abe2a7"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>CpuStatus</b> { <b>CPU_OK</b>
+, <b>CPU_BAD_ROM</b>
+, <b>CPU_ERR</b>
+ }</td></tr>
+<tr class="separator:a4b9bf2ddf22cbd77c4778eac31abe2a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac6a0f13fc2decdb6b575de43abb373ed"><td class="memItemLeft" align="right" valign="top"><a id="ac6a0f13fc2decdb6b575de43abb373ed" name="ac6a0f13fc2decdb6b575de43abb373ed"></a>
@@ -91,15 +100,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adf0c77f296c4d6f12145802c04e546e6"><td class="memItemLeft" align="right" valign="top"><a id="adf0c77f296c4d6f12145802c04e546e6" name="adf0c77f296c4d6f12145802c04e546e6"></a>
 <a class="el" href="classchip8_1_1Cpu.html">Cpu</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classchip8_1_1Cpu.html">Cpu</a> &amp;cpu)=delete</td></tr>
 <tr class="separator:adf0c77f296c4d6f12145802c04e546e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b3673b86e59c90e8d5aca750c30f56a"><td class="memItemLeft" align="right" valign="top"><a id="a7b3673b86e59c90e8d5aca750c30f56a" name="a7b3673b86e59c90e8d5aca750c30f56a"></a>
-opcode_t&#160;</td><td class="memItemRight" valign="bottom"><b>fetch</b> ()</td></tr>
-<tr class="separator:a7b3673b86e59c90e8d5aca750c30f56a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0c6f3370db353e1d05cab1989180d58"><td class="memItemLeft" align="right" valign="top"><a id="ac0c6f3370db353e1d05cab1989180d58" name="ac0c6f3370db353e1d05cab1989180d58"></a>
-oper_t&#160;</td><td class="memItemRight" valign="bottom"><b>decode</b> (opcode_t)</td></tr>
-<tr class="separator:ac0c6f3370db353e1d05cab1989180d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bae434c2428aaaa3ee12840ec41ae61"><td class="memItemLeft" align="right" valign="top"><a id="a2bae434c2428aaaa3ee12840ec41ae61" name="a2bae434c2428aaaa3ee12840ec41ae61"></a>
-cpu_status_t&#160;</td><td class="memItemRight" valign="bottom"><b>execute</b> (oper_t)</td></tr>
-<tr class="separator:a2bae434c2428aaaa3ee12840ec41ae61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeda7e913307834e2d91250d3fd182626"><td class="memItemLeft" align="right" valign="top"><a id="aeda7e913307834e2d91250d3fd182626" name="aeda7e913307834e2d91250d3fd182626"></a>
+OpCode&#160;</td><td class="memItemRight" valign="bottom"><b>fetch</b> ()</td></tr>
+<tr class="separator:aeda7e913307834e2d91250d3fd182626"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dfab7c47bc89677f700316b3d873622"><td class="memItemLeft" align="right" valign="top"><a id="a5dfab7c47bc89677f700316b3d873622" name="a5dfab7c47bc89677f700316b3d873622"></a>
+Oper&#160;</td><td class="memItemRight" valign="bottom"><b>decode</b> (OpCode)</td></tr>
+<tr class="separator:a5dfab7c47bc89677f700316b3d873622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab68384ca820bb5a0cc315e5deb84a489"><td class="memItemLeft" align="right" valign="top"><a id="ab68384ca820bb5a0cc315e5deb84a489" name="ab68384ca820bb5a0cc315e5deb84a489"></a>
+CpuStatus&#160;</td><td class="memItemRight" valign="bottom"><b>execute</b> (Oper)</td></tr>
+<tr class="separator:ab68384ca820bb5a0cc315e5deb84a489"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="cpu_8hpp_source.html">cpu.hpp</a></li>
