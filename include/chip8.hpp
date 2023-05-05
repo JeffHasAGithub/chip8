@@ -17,7 +17,7 @@
 #include "memory.hpp"
 
 namespace chip8 {
-enum chip8_status_t {
+enum Chip8Status {
     CHIP8_OK,
     CHIP8_ERR,
 };
@@ -33,7 +33,7 @@ enum chip8_status_t {
  * @return The status code to be passed for 'main'
  * to return to the OS.
  */
-chip8_status_t run(int argc, char *argv[]);
+Chip8Status run(int argc, char *argv[]);
 } // namespace chip8
 
 #endif
