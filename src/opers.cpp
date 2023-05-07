@@ -10,6 +10,10 @@ static std::size_t extract_mask(Addr addr, Addr mask) {
     return Bits{addr}.extract(mask);
 }
 
+static std::size_t extract_x(Addr addr) {
+    return extract_mask(addr, x_mask) >> 8;
+}
+
 Cpu::CpuStatus op_0nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 
 // Jump to location 'nnn'
