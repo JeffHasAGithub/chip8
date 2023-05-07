@@ -4,6 +4,8 @@ namespace chip8 {
 static constexpr Addr nnn_mask{0x0FFF};
 static constexpr Addr kk_mask{0x00FF};
 static constexpr Addr x_mask{0x0F00};
+static constexpr Addr y_mask{0x00F0};
+
 static std::size_t extract_mask(Addr addr, Addr mask) {
     return Bits{addr}.extract(mask);
 }
