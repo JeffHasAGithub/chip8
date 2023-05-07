@@ -26,6 +26,9 @@ class CpuException : public Exception {
 
 class Cpu {
   public:
+    using OpCode = std::uint16_t;
+    using Oper = int (*)();
+
     enum CpuStatus {
         CPU_OK,
         CPU_BAD_ROM,
