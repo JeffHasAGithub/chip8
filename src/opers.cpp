@@ -57,8 +57,8 @@ Cpu::CpuStatus op_4nnn(Cpu &cpu) {
 // Skip next instruction if Vx == Vy
 Cpu::CpuStatus op_5nnn(Cpu &cpu) {
     Bits bits{cpu.current_opc};
-    std::size_t x = bits.extract(x_mask);
-    std::size_t y = bits.extract(y_mask);
+    std::size_t x = extract_x(cpu.current_opc);
+    std::size_t y = extract_y(cpu.current_opc);
 
     if (cpu.m_gp[x] == cpu.m_gp[y])
         cpu.m_pc += 2;
