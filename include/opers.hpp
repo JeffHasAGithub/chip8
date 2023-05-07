@@ -1,3 +1,16 @@
+/**
+ * @file opers.hpp
+ *
+ * The original Chip8 implementation had
+ * 36 instructions. Rather than declare
+ * 36 separate instructions, we declare
+ * 16 'handlers' based on the first nibble
+ * of the given instruction. The handler will
+ * decode the full instruction and either
+ * delegate to a separate function or execute
+ * the instruction inline.
+ */
+
 #ifndef CHIP8_OPERS_HPP
 #define CHIP8_OPERS_HPP
 
