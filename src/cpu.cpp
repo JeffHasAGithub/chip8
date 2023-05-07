@@ -19,8 +19,8 @@ void Cpu::fetch() {
     current_opc = opc;
 }
 
-Oper Cpu::decode(OpCode opc) { return nullptr; }
-Cpu::CpuStatus Cpu::execute(Oper oper) { return CpuStatus::CPU_OK; }
+void Cpu::decode() {}
+Cpu::CpuStatus Cpu::execute() { return CpuStatus::CPU_OK; }
 
 Cpu::CpuStatus Cpu::init_ram(std::istream &rom) {
     CpuStatus status{CpuStatus::CPU_OK};
