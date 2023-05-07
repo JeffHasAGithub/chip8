@@ -14,7 +14,7 @@ Cpu::CpuStatus op_0nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 
 // Jump to location 'nnn'
 Cpu::CpuStatus op_1nnn(Cpu &cpu) {
-    cpu.m_pc = extract_mask(cpu.current_opc, 0x0FFF);
+    cpu.m_pc = extract_mask(cpu.current_opc, nnn_mask);
 
     return Cpu::CpuStatus::CPU_OK;
 }
@@ -24,8 +24,8 @@ Cpu::CpuStatus op_2nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 // 3xkk - SE Vx, byte
 // Skip next instruction if Vx == kk
 Cpu::CpuStatus op_3nnn(Cpu &cpu) {
-    Addr nnn = extract_mask(cpu.current_opc, 0x0FFF);
-    Byte kk = nnn & 0x00FF;
+    Addr nnn = extract_mask(cpu.current_opc, nnn_mask);
+    Byte kk = nnn & kk_mask;
     std::size_t x = nnn >> 8;
 
     if (cpu.m_gp[x] == kk)
@@ -37,8 +37,8 @@ Cpu::CpuStatus op_3nnn(Cpu &cpu) {
 // 4xkk - SNE Vx, byte
 // Skip next instruction if Vx != kk
 Cpu::CpuStatus op_4nnn(Cpu &cpu) {
-    Addr nnn = extract_mask(cpu.current_opc, 0x0FFF);
-    Byte kk = nnn & 0x00FF;
+    Addr nnn = extract_mask(cpu.current_opc, nnn_mask);
+    Byte kk = nnn & kk_mask;
     std::size_t x = nnn >> 8;
 
     if (cpu.m_gp[x] != kk)
@@ -51,8 +51,8 @@ Cpu::CpuStatus op_4nnn(Cpu &cpu) {
 // Skip next instruction if Vx == Vy
 Cpu::CpuStatus op_5nnn(Cpu &cpu) {
     Bits bits{cpu.current_opc};
-    std::size_t x = bits.extract(0x0F00);
-    std::size_t y = bits.extract(0x00F0);
+    std::size_t x = bits.extract(x_mask);
+    std::size_t y = bits.extract(y_mask);
 
     if (cpu.m_gp[x] == cpu.m_gp[y])
         cpu.m_pc += 2;
