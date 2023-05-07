@@ -85,7 +85,73 @@ Cpu::CpuStatus op_7nnn(Cpu &cpu) {
     return Cpu::CpuStatus::CPU_OK;
 }
 
-Cpu::CpuStatus op_8nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
+// 8nnn - Performs oper based on least significant nibble
+Cpu::CpuStatus op_8nnn(Cpu &cpu) {
+    std::size_t x{extract_x(cpu.current_opc)};
+    std::size_t y{extract_y(cpu.current_opc)};
+    Byte n = extract_mask(cpu.current_opc, 0x000F);
+
+    switch (n) {
+        case 0x00:
+            // 8xy0 - LD Vx, Vy
+            // Load the value of Vy into Vx
+            cpu.m_gp[x] = cpu.m_gp[y];
+            break;
+        case 0x01:
+            // 8xy1 - OR Vx, Vy
+            // Load the value of Vx | Vy into Vx
+            cpu.m_gp[x] |= cpu.m_gp[y];
+            break;
+        case 0x02:
+            // 8xy2 - AND Vx, Vy
+            // Load the value of Vx & Vy into Vx
+            cpu.m_gp[x] &= cpu.m_gp[y];
+            break;
+        case 0x03:
+            // 8xy3 - XOR Vx, Vy
+            // Load the value of Vx ^ Vy into Vx
+            cpu.m_gp[x] ^= cpu.m_gp[y];
+            break;
+        case 0x04:
+            // 8xy4 - ADD Vx, Vy
+            // Load the value of Vx + Vy into Vx, VF = carry
+            cpu.m_gp[0x0F] = (cpu.m_gp[x] + cpu.m_gp[y] > 0xFF)
+                ? 0x01 : 0x00;
+            cpu.m_gp[x] += cpu.m_gp[y];
+            break;
+        case 0x05:
+            // 8xy5 - SUB Vx, Vy
+            // Load the value of Vx - Vy into Vx, VF = !borrow
+            cpu.m_gp[0x0F] = (cpu.m_gp[x] > cpu.m_gp[y])
+                ? 0x01 : 0x00;
+            cpu.m_gp[x] -= cpu.m_gp[y];
+            break;
+        case 0x06:
+            // 8xy6 - SHR Vx
+            // Load the result of Vx / 2 into Vx, VF = LSB
+            cpu.m_gp[0x0F] = extract_mask(cpu.current_opc, 0x0001);
+            cpu.m_gp[x] >>= 0x01;
+            break;
+        case 0x07:
+            // 8xy7 - SUBN Vx, Vy
+            // Load the value of Vy - Vx into Vx, VF = !borrow
+            cpu.m_gp[0x0F] = (cpu.m_gp[y] > cpu.m_gp[x])
+                ? 0x01 : 0x00;
+            cpu.m_gp[x] = cpu.m_gp[y] - cpu.m_gp[x];
+            break;
+        case 0x0E:
+            // 8xyE - SHL Vx
+            // Load the result of Vx * 2 into Vx, VF = MSB
+            cpu.m_gp[0x0F] = extract_mask(cpu.current_opc, 0x8000);
+            cpu.m_gp[x] <<= 0x01;
+            break;
+        default:
+            return Cpu::CpuStatus::CPU_BAD_OP;
+    }
+
+    return Cpu::CpuStatus::CPU_OK;
+}
+ 
 Cpu::CpuStatus op_9nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_Annn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_Bnnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
