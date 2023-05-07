@@ -40,7 +40,7 @@ class Cpu {
 
     void fetch();
     void decode();
-    CpuStatus execute(Oper);
+    CpuStatus execute();
 
   private:
     Memory<Byte, mem_sz> m_ram{};
