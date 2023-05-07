@@ -39,7 +39,7 @@ class Cpu {
     Cpu &operator=(const Cpu &cpu) = delete;
 
     void fetch();
-    Oper decode(OpCode);
+    void decode();
     CpuStatus execute(Oper);
 
   private:
