@@ -9,8 +9,7 @@ Cpu::CpuStatus op_0nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 
 // Jump to location 'nnn'
 Cpu::CpuStatus op_1nnn(Cpu &cpu) {
-    Bits bits{cpu.current_opc};
-    cpu.m_pc = bits.extract(0x0FFF);
+    cpu.m_pc = extract_nnn(cpu.current_opc);
 
     return Cpu::CpuStatus::CPU_OK;
 }
