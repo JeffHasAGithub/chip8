@@ -75,7 +75,16 @@ Cpu::CpuStatus op_6nnn(Cpu &cpu) {
     return Cpu::CpuStatus::CPU_OK;
 }
 
-Cpu::CpuStatus op_7nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
+// 7xkk - ADD Vx, byte
+// Load the value of Vx + kk into Vx
+Cpu::CpuStatus op_7nnn(Cpu &cpu) {
+    std::size_t x = extract_x(cpu.current_opc);
+    Byte kk = extract_mask(cpu.current_opc, kk_mask);
+
+    cpu.m_gp[x] += kk;
+    return Cpu::CpuStatus::CPU_OK;
+}
+
 Cpu::CpuStatus op_8nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_9nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_Annn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
