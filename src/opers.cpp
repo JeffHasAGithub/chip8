@@ -28,9 +28,8 @@ Cpu::CpuStatus op_2nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 // 3xkk - SE Vx, byte
 // Skip next instruction if Vx == kk
 Cpu::CpuStatus op_3nnn(Cpu &cpu) {
-    Addr nnn = extract_mask(cpu.current_opc, nnn_mask);
-    Byte kk = nnn & kk_mask;
-    std::size_t x = nnn >> 8;
+    std::size_t x = extract_x(cpu.current_opc);
+    Byte kk = extract_mask(cpu.current_opc, kk_mask);
 
     if (cpu.m_gp[x] == kk)
         cpu.m_pc += 2;
