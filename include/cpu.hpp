@@ -61,6 +61,23 @@ class Cpu {
 
     CpuStatus init_ram(std::istream &rom);
     void init_font();
+
+    friend CpuStatus op_0nnn(Cpu&);
+    friend CpuStatus op_1nnn(Cpu&);
+    friend CpuStatus op_2nnn(Cpu&);
+    friend CpuStatus op_3nnn(Cpu&);
+    friend CpuStatus op_4nnn(Cpu&);
+    friend CpuStatus op_5nnn(Cpu&);
+    friend CpuStatus op_6nnn(Cpu&);
+    friend CpuStatus op_7nnn(Cpu&);
+    friend CpuStatus op_8nnn(Cpu&);
+    friend CpuStatus op_9nnn(Cpu&);
+    friend CpuStatus op_Annn(Cpu&);
+    friend CpuStatus op_Bnnn(Cpu&);
+    friend CpuStatus op_Cnnn(Cpu&);
+    friend CpuStatus op_Dnnn(Cpu&);
+    friend CpuStatus op_Ennn(Cpu&);
+    friend CpuStatus op_Fnnn(Cpu&);
 };
 } // namespace chip8
 
