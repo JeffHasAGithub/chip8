@@ -15,7 +15,19 @@ Cpu::CpuStatus op_1nnn(Cpu &cpu) {
 }
 
 Cpu::CpuStatus op_2nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
-Cpu::CpuStatus op_3nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
+
+// 3xkk - SE Vx, byte
+// Skip next instruction if Vx == kk
+Cpu::CpuStatus op_3nnn(Cpu &cpu) {
+    Addr nnn = extract_nnn(cpu.current_opc);
+    Byte kk = nnn & 0x00FF;
+    std::size_t x = nnn >> 8;
+
+    if (cpu.m_gp[x] == kk)
+        cpu.m_pc += 2;
+
+    return Cpu::CpuStatus::CPU_OK;
+}
 Cpu::CpuStatus op_4nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_5nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_6nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
