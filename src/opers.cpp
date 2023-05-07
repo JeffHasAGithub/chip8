@@ -42,7 +42,19 @@ Cpu::CpuStatus op_4nnn(Cpu &cpu) {
     return Cpu::CpuStatus::CPU_OK;
 }
 
-Cpu::CpuStatus op_5nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
+// 5xy0 - SE Vx, Vy
+// Skip next instruction if Vx == Vy
+Cpu::CpuStatus op_5nnn(Cpu &cpu) {
+    Bits bits{cpu.current_opc};
+    std::size_t x = bits.extract(0x0F00);
+    std::size_t y = bits.extract(0x00F0);
+
+    if (cpu.m_gp[x] == cpu.m_gp[y])
+        cpu.m_pc += 2;
+
+    return Cpu::CpuStatus::CPU_OK;
+}
+
 Cpu::CpuStatus op_6nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_7nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_8nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
