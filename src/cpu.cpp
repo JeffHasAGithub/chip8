@@ -10,13 +10,13 @@ Cpu::Cpu(std::istream &rom) {
     init_font();
 }
 
-OpCode Cpu::fetch() {
-    OpCode op{};
+void Cpu::fetch() {
+    OpCode opc{};
 
-    op |= m_ram[m_pc++] << 8;
-    op |= m_ram[m_pc];
+    opc |= m_ram[m_pc++] << 8;
+    opc |= m_ram[m_pc];
 
-    return op;
+    current_opc = opc;
 }
 
 Oper Cpu::decode(OpCode opc) { return nullptr; }
