@@ -1,6 +1,7 @@
 #include "opers.hpp"
 
 namespace chip8 {
+static constexpr Addr nnn_mask{0x0FFF};
 static std::size_t extract_mask(Addr addr, Addr mask) {
     return Bits{addr}.extract(mask);
 }
