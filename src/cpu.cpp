@@ -31,7 +31,9 @@ void Cpu::decode() {
     current_oper = opers[(current_opc & 0xF000) >> 12];
 }
 
-Cpu::CpuStatus Cpu::execute() { return CpuStatus::CPU_OK; }
+Cpu::CpuStatus Cpu::execute() {
+    return current_oper(*this);
+}
 
 Cpu::CpuStatus Cpu::init_ram(std::istream &rom) {
     CpuStatus status{CpuStatus::CPU_OK};
