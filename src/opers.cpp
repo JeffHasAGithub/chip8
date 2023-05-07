@@ -1,8 +1,8 @@
 #include "opers.hpp"
 
 namespace chip8 {
-static std::size_t extract_nnn(Addr addr) {
-    return Bits{addr}.extract(0x0FFF);
+static std::size_t extract_mask(Addr addr, Addr mask) {
+    return Bits{addr}.extract(mask);
 }
 
 Cpu::CpuStatus op_0nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
