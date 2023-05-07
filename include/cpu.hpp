@@ -29,6 +29,7 @@ class Cpu {
     enum CpuStatus {
         CPU_OK,
         CPU_BAD_ROM,
+        CPU_BAD_OP,
         CPU_ERR,
     };
 
