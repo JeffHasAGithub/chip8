@@ -38,7 +38,7 @@ class Cpu {
 
     Cpu &operator=(const Cpu &cpu) = delete;
 
-    OpCode fetch();
+    void fetch();
     Oper decode(OpCode);
     CpuStatus execute(Oper);
 
