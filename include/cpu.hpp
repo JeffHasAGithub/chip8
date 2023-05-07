@@ -53,6 +53,9 @@ class Cpu {
     Addr m_i;             // index register
     std::size_t m_sp{};   // stack pointer
 
+    OpCode current_opc{};
+    Oper current_oper{};
+
     CpuStatus init_ram(std::istream &rom);
     void init_font();
 };
