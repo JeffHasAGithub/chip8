@@ -1,6 +1,10 @@
 #include "opers.hpp"
 
 namespace chip8 {
+static std::size_t extract_nnn(Addr addr) {
+    return Bits{addr}.extract(0x0FFF);
+}
+
 Cpu::CpuStatus op_0nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 
 // Jump to location 'nnn'
