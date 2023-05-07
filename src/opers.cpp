@@ -56,7 +56,6 @@ Cpu::CpuStatus op_4nnn(Cpu &cpu) {
 // 5xy0 - SE Vx, Vy
 // Skip next instruction if Vx == Vy
 Cpu::CpuStatus op_5nnn(Cpu &cpu) {
-    Bits bits{cpu.current_opc};
     std::size_t x = extract_x(cpu.current_opc);
     std::size_t y = extract_y(cpu.current_opc);
 
@@ -66,7 +65,13 @@ Cpu::CpuStatus op_5nnn(Cpu &cpu) {
     return Cpu::CpuStatus::CPU_OK;
 }
 
-Cpu::CpuStatus op_6nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
+// 6xkk - LD Vx, byte
+// Load kk into Vx
+Cpu::CpuStatus op_6nnn(Cpu &) {
+
+    return Cpu::CpuStatus::CPU_OK;
+}
+
 Cpu::CpuStatus op_7nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_8nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_9nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
