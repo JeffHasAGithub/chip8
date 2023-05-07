@@ -2,7 +2,15 @@
 
 namespace chip8 {
 Cpu::CpuStatus op_0nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
-Cpu::CpuStatus op_1nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
+
+// Jump to location 'nnn'
+Cpu::CpuStatus op_1nnn(Cpu &cpu) {
+    Bits bits{cpu.current_opc};
+    cpu.m_pc = bits.extract(0x0FFF);
+
+    return Cpu::CpuStatus::CPU_OK;
+}
+
 Cpu::CpuStatus op_2nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_3nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_4nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
@@ -17,4 +25,4 @@ Cpu::CpuStatus op_Cnnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_Dnnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_Ennn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_Fnnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
-}
+} // namespace chip8

@@ -14,6 +14,7 @@
 #ifndef CHIP8_OPERS_HPP
 #define CHIP8_OPERS_HPP
 
+#include "bits.hpp"
 #include "cpu.hpp"
 
 namespace chip8 {
