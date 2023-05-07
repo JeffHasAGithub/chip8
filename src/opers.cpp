@@ -67,8 +67,11 @@ Cpu::CpuStatus op_5nnn(Cpu &cpu) {
 
 // 6xkk - LD Vx, byte
 // Load kk into Vx
-Cpu::CpuStatus op_6nnn(Cpu &) {
+Cpu::CpuStatus op_6nnn(Cpu &cpu) {
+    std::size_t x = extract_x(cpu.current_opc);
+    Byte kk = extract_mask(cpu.current_opc, kk_mask);
 
+    cpu.m_gp[x] = kk;
     return Cpu::CpuStatus::CPU_OK;
 }
 
