@@ -169,10 +169,19 @@ Cpu::CpuStatus op_9nnn(Cpu &cpu) {
 Cpu::CpuStatus op_Annn(Cpu &cpu) {
     Addr nnn = extract_mask(cpu.current_opc, nnn_mask);
     cpu.m_i = nnn;
+
     return Cpu::CpuStatus::CPU_OK;
 }
 
-Cpu::CpuStatus op_Bnnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
+// Bnnn - JP V0, nnn
+// Jump to location V0 + nnn
+Cpu::CpuStatus op_Bnnn(Cpu &cpu) {
+    Addr nnn = extract_mask(cpu.current_opc, nnn_mask); 
+    cpu.m_pc = cpu.m_gp[0x00] + nnn;
+
+    return Cpu::CpuStatus::CPU_OK;
+}
+
 Cpu::CpuStatus op_Cnnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_Dnnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_Ennn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
