@@ -164,7 +164,14 @@ Cpu::CpuStatus op_9nnn(Cpu &cpu) {
     return Cpu::CpuStatus::CPU_OK;
 }
 
-Cpu::CpuStatus op_Annn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
+// Annn - LD I, nnn
+// Load the value nnn into I
+Cpu::CpuStatus op_Annn(Cpu &cpu) {
+    Addr nnn = extract_mask(cpu.current_opc, nnn_mask);
+    cpu.m_i = nnn;
+    return Cpu::CpuStatus::CPU_OK;
+}
+
 Cpu::CpuStatus op_Bnnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_Cnnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_Dnnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
