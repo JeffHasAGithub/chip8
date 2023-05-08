@@ -152,7 +152,18 @@ Cpu::CpuStatus op_8nnn(Cpu &cpu) {
     return Cpu::CpuStatus::CPU_OK;
 }
  
-Cpu::CpuStatus op_9nnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
+// 9xy0 - SNE Vx, Vy
+// Skip next instruction if Vx != Vy
+Cpu::CpuStatus op_9nnn(Cpu &cpu) {
+    std::size_t x{extract_x(cpu.current_opc)};
+    std::size_t y{extract_y(cpu.current_opc)};
+
+    if (cpu.m_gp[x] != cpu.m_gp[y])
+        cpu.m_pc += 2;
+
+    return Cpu::CpuStatus::CPU_OK;
+}
+
 Cpu::CpuStatus op_Annn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_Bnnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
 Cpu::CpuStatus op_Cnnn(Cpu &) { return Cpu::CpuStatus::CPU_OK; }
