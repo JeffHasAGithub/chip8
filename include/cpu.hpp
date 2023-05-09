@@ -29,8 +29,12 @@ class Cpu {
     enum CpuStatus {
         CPU_OK,
         CPU_BAD_ROM,
+        CPU_BAD_OP,
         CPU_ERR,
     };
+
+    using OpCode = std::uint16_t;
+    using Oper = CpuStatus (*)(Cpu&);
 
     Cpu(std::istream &rom);
     Cpu(const Cpu &cpu) = delete;
@@ -38,9 +42,9 @@ class Cpu {
 
     Cpu &operator=(const Cpu &cpu) = delete;
 
-    OpCode fetch();
-    Oper decode(OpCode);
-    CpuStatus execute(Oper);
+    void fetch();
+    void decode();
+    CpuStatus execute();
 
   private:
     Memory<Byte, mem_sz> m_ram{};
@@ -53,8 +57,28 @@ class Cpu {
     Addr m_i;             // index register
     std::size_t m_sp{};   // stack pointer
 
+    OpCode current_opc{};
+    Oper current_oper{};
+
     CpuStatus init_ram(std::istream &rom);
     void init_font();
+
+    friend CpuStatus op_0nnn(Cpu&);
+    friend CpuStatus op_1nnn(Cpu&);
+    friend CpuStatus op_2nnn(Cpu&);
+    friend CpuStatus op_3nnn(Cpu&);
+    friend CpuStatus op_4nnn(Cpu&);
+    friend CpuStatus op_5nnn(Cpu&);
+    friend CpuStatus op_6nnn(Cpu&);
+    friend CpuStatus op_7nnn(Cpu&);
+    friend CpuStatus op_8nnn(Cpu&);
+    friend CpuStatus op_9nnn(Cpu&);
+    friend CpuStatus op_Annn(Cpu&);
+    friend CpuStatus op_Bnnn(Cpu&);
+    friend CpuStatus op_Cnnn(Cpu&);
+    friend CpuStatus op_Dnnn(Cpu&);
+    friend CpuStatus op_Ennn(Cpu&);
+    friend CpuStatus op_Fnnn(Cpu&);
 };
 } // namespace chip8
 

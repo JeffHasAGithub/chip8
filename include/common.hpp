@@ -15,8 +15,6 @@
 namespace chip8 {
 using Byte = std::uint8_t;
 using Addr = std::uint16_t;
-using OpCode = std::uint16_t;
-using Oper = int (*)(OpCode);
 
 inline constexpr int mem_sz{0x1000};
 inline constexpr int stk_sz{0x10};

@@ -1,6 +1,14 @@
 #include "cpu.hpp"
+#include "opers.hpp"
 
 namespace chip8 {
+static std::array<Cpu::Oper, 0x10> opers{
+    op_0nnn, op_1nnn, op_2nnn, op_3nnn, op_4nnn,
+    op_5nnn, op_6nnn, op_7nnn, op_8nnn, op_9nnn,
+    op_Annn, op_Bnnn, op_Cnnn, op_Dnnn, op_Ennn,
+    op_Fnnn
+};
+
 Cpu::Cpu(std::istream &rom) {
     int status = init_ram(rom);
 
@@ -10,17 +18,22 @@ Cpu::Cpu(std::istream &rom) {
     init_font();
 }
 
-OpCode Cpu::fetch() {
-    OpCode op{};
+void Cpu::fetch() {
+    OpCode opc{};
 
-    op |= m_ram[m_pc++] << 8;
-    op |= m_ram[m_pc];
+    opc |= m_ram[m_pc++] << 8;
+    opc |= m_ram[m_pc];
 
-    return op;
+    current_opc = opc;
 }
 
-Oper Cpu::decode(OpCode opc) { return nullptr; }
-Cpu::CpuStatus Cpu::execute(Oper oper) { return CpuStatus::CPU_OK; }
+void Cpu::decode() {
+    current_oper = opers[(current_opc & 0xF000) >> 12];
+}
+
+Cpu::CpuStatus Cpu::execute() {
+    return current_oper(*this);
+}
 
 Cpu::CpuStatus Cpu::init_ram(std::istream &rom) {
     CpuStatus status{CpuStatus::CPU_OK};
