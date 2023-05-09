@@ -16,6 +16,7 @@
 
 #include "bits.hpp"
 #include "cpu.hpp"
+#include <random>
 
 namespace chip8 {
 Cpu::CpuStatus op_0nnn(Cpu &);
