@@ -20,6 +20,11 @@ class SdlException : public Exception {
 
 class Sdl {
   public:
+    enum SdlStatus {
+        SDL_OK,
+        SDL_ERR,
+    };
+
     Sdl(const Sdl &sdl) = delete;
     Sdl &operator=(const Sdl &sdl) = delete;
 
