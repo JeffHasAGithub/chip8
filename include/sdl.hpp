@@ -1,3 +1,12 @@
+/**
+ * @file sdl.hpp
+ *
+ * The Sdl class utilizes the singleton pattern
+ * to provide a readily accessible object for
+ * accessing the various multimedia subsystems
+ * including video, audio, and input.
+ */
+
 #ifndef CHIP8_SDL_HPP
 #define CHIP8_SDL_HPP
 
