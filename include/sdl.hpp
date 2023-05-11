@@ -37,6 +37,7 @@ class Sdl {
     int m_width;
     int m_height;
     SDL_Window* m_window{nullptr};
+    SDL_Surface* m_surface{nullptr};
 
     static Sdl *s_instance;
 };
