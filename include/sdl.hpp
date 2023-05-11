@@ -11,6 +11,7 @@
 #define CHIP8_SDL_HPP
 
 #include "except.hpp"
+#include <SDL2/SDL.h>
 
 namespace chip8 {
 class SdlException : public Exception {
@@ -35,6 +36,8 @@ class Sdl {
 
     int m_width;
     int m_height;
+    SDL_Window* m_window{nullptr};
+
     static Sdl *s_instance;
 };
 } // namespace chip8
