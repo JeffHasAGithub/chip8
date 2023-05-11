@@ -29,7 +29,7 @@ class Sdl {
     Sdl(const Sdl &sdl) = delete;
     Sdl &operator=(const Sdl &sdl) = delete;
 
-    static Sdl *instance(int width, int height);
+    static Sdl *instance(const std::string& title, int width, int height);
 
   private:
     Sdl(const std::string& title, int width, int height);
