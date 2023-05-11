@@ -17,9 +17,9 @@ Sdl::Sdl(const std::string &title, int width, int height) : m_width{width}, m_he
         throw SdlException("Could not create SDL surface", SDL_ERR);
 }
 
-Sdl *Sdl::instance(int w_width, int w_height) {
+Sdl *Sdl::instance(const std::string& title, int w_width, int w_height) {
     if (s_instance == nullptr)
-        s_instance = new Sdl(w_width, w_height);
+        s_instance = new Sdl(title, w_width, w_height);
     return s_instance;
 }
 } // namespace chip8
