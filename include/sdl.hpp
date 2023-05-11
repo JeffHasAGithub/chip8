@@ -32,7 +32,7 @@ class Sdl {
     static Sdl *instance(int width, int height);
 
   private:
-    Sdl(int width, int height) : m_width{width}, m_height{height} {};
+    Sdl(const std::string& title, int width, int height);
 
     int m_width;
     int m_height;
