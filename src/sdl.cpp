@@ -19,7 +19,7 @@ Sdl::Sdl(const std::string &title, int width, int height) : m_width{width}, m_he
 
 Sdl::~Sdl() {
     // m_surface is freed with m_window
-    free(m_window);
+    SDL_DestroyWindow(m_window);
 }
 
 Sdl *Sdl::instance(const std::string& title, int w_width, int w_height) {
