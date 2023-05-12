@@ -17,6 +17,11 @@ Sdl::Sdl(const std::string &title, int width, int height) : m_width{width}, m_he
         throw SdlException("Could not create SDL surface", SDL_ERR);
 }
 
+Sdl::~Sdl() {
+    // m_surface is freed with m_window
+    free(m_window);
+}
+
 Sdl *Sdl::instance(const std::string& title, int w_width, int w_height) {
     if (s_instance == nullptr)
         s_instance = new Sdl(title, w_width, w_height);
