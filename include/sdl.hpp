@@ -26,6 +26,8 @@ class Sdl {
         SDL_ERR,
     };
 
+    ~Sdl();
+
     Sdl(const Sdl &sdl) = delete;
     Sdl &operator=(const Sdl &sdl) = delete;
 
