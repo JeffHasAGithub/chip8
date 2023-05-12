@@ -1,10 +1,11 @@
 CXX := clang++
 CXXFLAGS ?= -std=c++20 -Wall -Weffc++ -Wextra -Wsign-conversion -pedantic-errors
+LDFLAGS ?= -lSDL2
 INCLUDES ?= -Iinclude
 
 EXE = $(BINDIR)/chip8
 TEST = $(BINDIR)/test
-OBJS = $(addprefix $(OBJDIR)/, main.o chip8.o args.o log.o memory.o cpu.o)
+OBJS = $(addprefix $(OBJDIR)/, main.o chip8.o args.o log.o cpu.o opers.o sdl.o)
 
 BINDIR = bin
 SRCDIR = src
@@ -13,7 +14,7 @@ OBJDIR = $(SRCDIR)/obj
 
 $(EXE): $(OBJS)
 	@mkdir -p $(dir $@)
-	$(CXX) -o $@ $^
+	$(CXX) $(LDFLAGS) -o $@ $^
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@mkdir -p $(dir $@)
