@@ -14,7 +14,6 @@
 #include "common.hpp"
 #include "cpu.hpp"
 #include "log.hpp"
-#include "memory.hpp"
 #include "sdl.hpp"
 
 namespace chip8 {
