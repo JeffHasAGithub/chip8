@@ -31,6 +31,8 @@ class Sdl {
     Sdl(const Sdl &sdl) = delete;
     Sdl &operator=(const Sdl &sdl) = delete;
 
+    SdlStatus run();
+
     static Sdl *instance(const std::string& title, int width, int height);
 
   private:
