@@ -23,6 +23,23 @@ Sdl::~Sdl() {
     SDL_Quit();
 }
 
+Sdl::SdlStatus Sdl::run() {
+    SDL_Event ev;
+    bool done = false;
+
+    while (!done) {
+       while (SDL_PollEvent(&ev)) {
+            if (ev.type == SDL_QUIT)
+                done = true;
+       }
+
+       SDL_FillRect(m_surface, nullptr, SDL_MapRGB(m_surface->format, 0xFF, 0xFF, 0xFF));
+       SDL_UpdateWindowSurface(m_window);
+    }
+
+    return Sdl::SDL_OK;
+}
+
 Sdl *Sdl::instance(const std::string& title, int w_width, int w_height) {
     if (s_instance == nullptr)
         s_instance = new Sdl(title, w_width, w_height);
